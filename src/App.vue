@@ -1,28 +1,55 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header class="text-center">
+      <h1 class="my-5">DOM Javascript - VueJS</h1>
+      <div class="row text-center mx-auto">
+        <div class="col">
+          <a href="" role="button" class="btn btn-danger active" data-position="1">Exo 1</a>
+        </div>
+        <div class="col">
+          <a href="" role="button" class="btn btn-danger" data-position="2">Exo 2</a>
+        </div>
+        <div class="col">
+          <a href="" role="button" class="btn btn-danger" data-position="3">Exo 3</a>
+        </div>
+        <div class="col">
+          <a href="" role="button" class="btn btn-danger" data-position="4">Exo 4</a>
+        </div>
+        <div class="col">
+          <a href="" role="button" class="btn btn-danger" data-position="5">Exo 5</a>
+        </div>
+        <div class="col">
+          <a href="" role="button" class="btn btn-danger" data-position="6">Exo 6</a>
+        </div>
+        <div class="col">
+          <a href="" role="button" class="btn btn-danger" data-position="7">Exo 7</a>
+        </div>
+        <div class="col">
+          <a href="" role="button" class="btn btn-danger" data-position="8">Exo 8</a>
+        </div>
+        <div class="col">
+          <a href="" role="button" class="btn btn-danger" data-position="9">Exo 9</a>
+        </div>
+        <div class="col">
+          <a href="" role="button" class="btn btn-danger" data-position="10">Exo 10</a>
+        </div>
+
+      </div>
+    </header>
+    <section class="container">
+      
+    </section>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld,
-  },
+  name: "app",
+  components: {}
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+@import "./assets/sass/main.sass"
+
 </style>
