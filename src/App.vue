@@ -1,55 +1,95 @@
 <template>
   <div id="app">
-    <header class="text-center">
+    <header class="text-center container">
       <h1 class="my-5">DOM Javascript - VueJS</h1>
-      <div class="row text-center mx-auto">
-        <div class="col">
-          <a href="" role="button" class="btn btn-danger active" data-position="1">Exo 1</a>
-        </div>
-        <div class="col">
-          <a href="" role="button" class="btn btn-danger" data-position="2">Exo 2</a>
-        </div>
-        <div class="col">
-          <a href="" role="button" class="btn btn-danger" data-position="3">Exo 3</a>
-        </div>
-        <div class="col">
-          <a href="" role="button" class="btn btn-danger" data-position="4">Exo 4</a>
-        </div>
-        <div class="col">
-          <a href="" role="button" class="btn btn-danger" data-position="5">Exo 5</a>
-        </div>
-        <div class="col">
-          <a href="" role="button" class="btn btn-danger" data-position="6">Exo 6</a>
-        </div>
-        <div class="col">
-          <a href="" role="button" class="btn btn-danger" data-position="7">Exo 7</a>
-        </div>
-        <div class="col">
-          <a href="" role="button" class="btn btn-danger" data-position="8">Exo 8</a>
-        </div>
-        <div class="col">
-          <a href="" role="button" class="btn btn-danger" data-position="9">Exo 9</a>
-        </div>
-        <div class="col">
-          <a href="" role="button" class="btn btn-danger" data-position="10">Exo 10</a>
-        </div>
+      <ul class="row text-center mx-auto list-unstyled">
+        <li class="col">
+          <a href="#" role="button" class="btn btn-danger" :class="{'active' : isActive == 1}" data-position="1" @click.prevent="selectedExo">Exo 1</a>
+        </li>
+        <li class="col">
+          <a href="#" role="button" class="btn btn-danger" data-position="2" :class="{'active' : isActive == 2}" @click.prevent="selectedExo">Exo 2</a>
+        </li>
+        <li class="col">
+          <a href="#" role="button" class="btn btn-danger" data-position="3" :class="{'active' : isActive == 3}" @click.prevent="selectedExo">Exo 3</a>
+        </li>
+        <li class="col">
+          <a href="#" role="button" class="btn btn-danger" data-position="4" :class="{'active' : isActive == 4}" @click.prevent="selectedExo">Exo 4</a>
+        </li>
+        <li class="col">
+          <a href="#" role="button" class="btn btn-danger" data-position="5" :class="{'active' : isActive == 5}" @click.prevent="selectedExo">Exo 5</a>
+        </li>
+        <li class="col">
+          <a href="#" role="button" class="btn btn-danger" data-position="6" :class="{'active' : isActive == 6}" @click.prevent="selectedExo">Exo 6</a>
+        </li>
+        <li class="col">
+          <a href="#" role="button" class="btn btn-danger" data-position="7" :class="{'active' : isActive == 7}" @click.prevent="selectedExo">Exo 7</a>
+        </li>
+        <li class="col">
+          <a href="#" role="button" class="btn btn-danger" data-position="8" :class="{'active' : isActive == 8}" @click.prevent="selectedExo">Exo 8</a>
+        </li>
+        <li class="col">
+          <a href="#" role="button" class="btn btn-danger" data-position="9" :class="{'active' : isActive == 9}" @click.prevent="selectedExo">Exo 9</a>
+        </li>
+        <li class="col">
+          <a href="#" role="button" class="btn btn-danger" data-position="10" :class="{'active' : isActive == 10}" @click.prevent="selectedExo">Exo 10</a>
+        </li>
+        
 
-      </div>
+      </ul>
     </header>
-    <section class="container">
+
+    <section id="panel-container" class="container">
+      <exo1 v-show="this.position == 1"></exo1>
+      <exo2 v-show="this.position == 2"></exo2>
+      <exo3 v-show="this.position == 3"></exo3>
+      <exo4 v-show="this.position == 4"></exo4>
+      <exo5 v-show="this.position == 5"></exo5>
+      <exo6 v-show="this.position == 6"></exo6>
+      <exo7 v-show="this.position == 7"></exo7>
       
     </section>
+
   </div>
 </template>
 
 <script>
+import exo1 from "./components/Exo1.vue";
+import exo2 from "./components/Exo2.vue";
+import exo3 from "./components/Exo3.vue";
+import exo4 from "./components/Exo4.vue";
+import exo5 from "./components/Exo5.vue";
+import exo6 from "./components/Exo6.vue";
+import exo7 from "./components/Exo7.vue";
 export default {
   name: "app",
-  components: {}
+  components: {
+    exo1,
+    exo2,
+    exo3,
+    exo4,
+    exo5,
+    exo6,
+    exo7
+  },
+  mounted() {},
+  data() {
+    return {
+      position: 1,
+      isActive: 1
+    };
+  },
+  methods: {
+    selectedExo: function(event) {
+      this.position = event.target.dataset.position;
+      this.isActive = event.target.dataset.position;
+    }
+  }
 };
 </script>
 
 <style lang="sass">
 @import "./assets/sass/main.sass"
+
+
 
 </style>
