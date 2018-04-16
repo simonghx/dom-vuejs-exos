@@ -2,11 +2,11 @@
   <section id="exo4" class="panel my-4">
     <div class="row justify-content-between">
       <div id="parent1" class="col-5 bg-primary">
-        <divtomove v-if="error == true"></divtomove>
+        <divtomove v-if="error"></divtomove>
         
       </div>
       <div id="parent2" class="col-5 bg-primary">
-        <divtomove v-if="error != true"></divtomove>
+        <divtomove v-if="!error"></divtomove>
       </div>
 
     </div>
@@ -37,11 +37,7 @@ export default {
   },
   methods: {
     moveDiv() {
-      if (this.error == true) {
-        this.error = false;
-      } else {
-        this.error = true;
-      }
+      this.error = !this.error;
       this.messageClick = "Tu as cliqué " + this.nbClick + " de fois.";
       this.nbClick++;
     }
