@@ -2,7 +2,7 @@
   <section id="exo5" class="panel my-4">
     <h2>Générer des éléments du DOM</h2>
     <p>Cliquer sur le bouton ci-dessous pour générer des oeufs.</p>
-    <button class="add-egg btn btn-success" @click="addEgg">Ajouter un oeuf</button>
+    <button class="btn btn-success" @click="addEgg">Ajouter un oeuf</button>
     <div class="panier">
       <oeuf v-for="(oeuf,index) in oeufs" :key="index"></oeuf>
       
