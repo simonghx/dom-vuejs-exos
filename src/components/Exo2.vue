@@ -1,5 +1,5 @@
 <template>
-  
+  <button class="btn" :class="{'btn-primary' : !change, 'btn-danger' : change}" @click.prevent="changeButton">Click on me</button>
 </template>
 
 <script>
@@ -8,9 +8,19 @@ export default {
   props: [],
   mounted() {},
   data() {
-    return {};
+    return {
+      change: true
+    };
   },
-  methods: {}
+  methods: {
+    changeButton() {
+      if (this.change == true) {
+        this.change = false;
+      } else {
+        this.change = true;
+      }
+    }
+  }
 };
 </script>
 
