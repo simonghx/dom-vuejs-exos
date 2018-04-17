@@ -11,7 +11,7 @@
     <div class="calculette bg-dark rounded">
       <div class="container text-center py-4 text-white">
         <span class="col-12">{{spanPlace}}{{op}}</span>
-        <input type="text" class="col-12" v-model="numberPlace">
+        <input type="text" class="col-12" v-model="numberPlace" :class="{'border-danger' : error}">
       </div>
       <div class="pb-4 container">
         <div class="row my-1 text-center justify-content-around">
@@ -51,7 +51,7 @@
         </div>
         <div class="row my-1 text-center justify-content-around">
 
-          <button class="btn btn-danger col-sm-2" @click="numberPlace = ''; spanPlace = ''">C</button>
+          <button class="btn btn-danger col-sm-2" @click="numberPlace = ''; spanPlace = ''; op = ''">C</button>
 
           <button class="btn btn-light col-sm-2" value="0" @click="writeNumber">0</button>
 
@@ -84,7 +84,8 @@ export default {
       nbtotal: "",
       numberPlace: "",
       spanPlace: "",
-      op: ""
+      op: "",
+      error: false
     };
   },
   methods: {
@@ -92,9 +93,24 @@ export default {
       this.numberPlace += event.target.value;
     },
     operateur(event) {
-      this.op = event.target.value;
-      this.spanPlace = this.numberPlace;
-      this.numberPlace = "";
+      if (this.spanPlace == "" && this.numberPlace == "") {
+        if (event.target.value == "*" || event.target.value == "/") {
+          this.spanPlace = "You need to choose a number";
+          this.numberPlace = "";
+          this.error = true;
+        } else {
+          this.numberPlace = event.target.value;
+        }
+      } else if (this.op.match(/[\+\/\-\*]/)) {
+        this.op = this.op.replace(/[\+\/\-\*]/, event.target.value);
+      } else if (this.spanPlace != "" && this.op == "") {
+        this.op += event.target.value;
+      } else {
+        this.op = event.target.value;
+        this.spanPlace = this.numberPlace;
+        this.numberPlace = "";
+        this.error = false;
+      }
     },
     calculer() {
       switch (this.op) {

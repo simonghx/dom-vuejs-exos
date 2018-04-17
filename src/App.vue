@@ -39,13 +39,13 @@
     </header>
 
     <section id="panel-container" class="container">
-      <exo1 v-show="this.position == 1"></exo1>
-      <exo2 v-show="this.position == 2"></exo2>
-      <exo3 v-show="this.position == 3"></exo3>
-      <exo4 v-show="this.position == 4"></exo4>
-      <exo5 v-show="this.position == 5"></exo5>
-      <exo6 v-show="this.position == 6"></exo6>
-      <exo7 v-show="this.position == 7"></exo7>
+      <exo1 v-show="this.isActive == 1"></exo1>
+      <exo2 v-show="this.isActive == 2"></exo2>
+      <exo3 v-show="this.isActive == 3"></exo3>
+      <exo4 v-show="this.isActive == 4"></exo4>
+      <exo5 v-show="this.isActive == 5"></exo5>
+      <exo6 v-show="this.isActive == 6"></exo6>
+      <exo7 v-show="this.isActive == 7"></exo7>
       
     </section>
 
@@ -74,13 +74,11 @@ export default {
   mounted() {},
   data() {
     return {
-      position: 1,
       isActive: 1
     };
   },
   methods: {
     selectedExo: function(event) {
-      this.position = event.target.dataset.position;
       this.isActive = event.target.dataset.position;
     }
   }
